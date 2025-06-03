@@ -8,9 +8,11 @@ int main() {
   int left, right;
   for(int i=1; i<=num_cannon; i++){
     cin >> left >> right;
-    for(int j=left; j<=right; j++){
-      protection[j]++;
-    }
+    protection[left]++;
+    protection[right+1]--;
+  }
+  for(int i=1; i<=num_wall; i++){
+    protection[i]+=protection[i-1];
   }
   int min=num_cannon;
   for(int search=1; search<=num_wall; search++){
