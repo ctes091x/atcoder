@@ -18,7 +18,7 @@ unsigned GetDigit(int num, int base){
 	return digit;
 }
 
-bool check(long long int input){
+bool check(long long int input, int base){
   // int len10=GetDigit(input, 10);
   // // cout << input << endl;
   // for(int i=0; i<1+len10/2; i++){
@@ -28,9 +28,9 @@ bool check(long long int input){
   //     return false;
   //   }
   // }
-  int len8 = GetDigit(input, 8);
-  for(int i=0; i<1+len8/2; i++){
-    if(input/pow_int(8, i)%8!=input/pow_int(8, len8-i-1)%8){
+  int len = GetDigit(input, base);
+  for(int i=0; i<1+len/2; i++){
+    if(input/pow_int(base, i)%base!=input/pow_int(base, len-i-1)%base){
       return false;
     }
   }
@@ -57,13 +57,20 @@ long long int genPal_odd(int input){
   return output;
 }
 
+// int main(){
+//   while(true){
+//     int i; cin >> i;
+//     cout << check(i, 8) << endl;;
+//   }
+// }
+
 int main(){
   int a,n;cin >>a>>n;
   long long int output=0;
   for(int i=1; i<=n; i++){
     long long int pal_odd = genPal_odd(i);
     if(pal_odd>n) break;
-    if(check(pal_odd)){
+    if(check(pal_odd, a)){
       cout << pal_odd << " is pal8" << endl;
       output+=pal_odd;
     }
@@ -71,7 +78,7 @@ int main(){
   for(int i=1; i<=n; i++){
     long long int pal_even = genPal_even(i);
     if(pal_even>n) break;
-    if(check(pal_even)){
+    if(check(pal_even, a)){
       cout << pal_even << " is pal8" << endl;
       output+=pal_even;
     }
