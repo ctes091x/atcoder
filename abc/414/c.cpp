@@ -19,15 +19,6 @@ unsigned GetDigit(int num, int base){
 }
 
 bool check(long long int input, int base){
-  // int len10=GetDigit(input, 10);
-  // // cout << input << endl;
-  // for(int i=0; i<1+len10/2; i++){
-  //   // cout << "digit " << i << ": " << input/pow_int(10, i)%10 << endl;
-  //   // cout << "digit " << len10-i-1 << ": " << input/pow_int(10, len10-i-1)%10 << endl;
-  //   if(input/pow_int(10, i)%10!=input/pow_int(10, len10-i-1)%10){
-  //     return false;
-  //   }
-  // }
   int len = GetDigit(input, base);
   for(int i=0; i<1+len/2; i++){
     if(input/pow_int(base, i)%base!=input/pow_int(base, len-i-1)%base){
