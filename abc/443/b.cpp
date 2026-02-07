@@ -1,11 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+using ll = long long;
+
 int main(){
-  long long int n,k;
+  ll n,k;
   cin >> n >> k;
-  long long int a = (n-1)*n / 2;
-  for(long long int i=n; true; i++){
+  ll a = (n-1)*n / 2;
+  for(ll i=n; ; ++i){
     if((i*(i+1)) / 2 - a >= k){
       cout << i - n << endl;
       return 0;
