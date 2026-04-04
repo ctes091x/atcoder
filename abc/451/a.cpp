@@ -1,0 +1,9 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+  string s;
+  cin >> s;
+  cout << ( s.length() % 5 == 0 ? "Yes" : "No") << endl;
+}
+
